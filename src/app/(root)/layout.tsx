@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { inter } from "@/fonts/fonts";
+import { Inter } from "next/font/google";
+import "../globals.css";
+import Header from "@/components/Header/header";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Ecommerce",
@@ -13,10 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${inter.className} antialiased min-h-screen`}>
-        {children}
-      </body>
-    </html>
+    <>
+      <Header />
+      {children}
+    </>
   );
 }
